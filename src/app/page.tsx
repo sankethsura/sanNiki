@@ -167,7 +167,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
+    <div className="h-screen h-[100dvh] bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -187,7 +187,7 @@ export default function Home() {
       )}
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 h-full flex flex-col">
         {/* Header Section */}
         <div className="flex-1 flex items-center justify-center text-center px-8">
           <div>
@@ -223,7 +223,7 @@ export default function Home() {
         {/* Heart Collection Game Section */}
         {currentSection >= 1 && !showMessage && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 md:p-8 max-w-lg w-full text-center border border-white/20 my-4 max-h-screen overflow-y-auto relative z-[101]">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 md:p-8 max-w-lg w-full text-center border border-white/20 my-4 max-h-[100dvh] overflow-y-auto relative z-[101]">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
                 💕 Prove Your True Love, Nikitha 💕
               </h2>
@@ -241,15 +241,6 @@ export default function Home() {
                     <p className="text-xs md:text-sm text-pink-200 mb-3 md:mb-4 leading-relaxed">
                       Warning: Every heart you catch makes the remaining ones move FASTER! The final hearts will be incredibly challenging to catch! 🏃‍♀️💨
                     </p>
-                    
-                    {/* Speed Configuration Display */}
-                    <div className="bg-blue-500/10 p-3 rounded-xl border border-blue-300/20 mb-3 md:mb-4">
-                      <p className="text-xs text-blue-200 mb-1">⚡ Current Speed Settings:</p>
-                      <div className="text-xs text-white/80 space-y-1">
-                        <p>Base Speed: {heartSpeedConfig.baseSpeed} | Speed Increase: +{heartSpeedConfig.speedIncreasePerHeart * 100}% per heart</p>
-                        <p>Max Speed: {heartSpeedConfig.maxSpeedMultiplier}x | Variation: ±{heartSpeedConfig.speedVariation}</p>
-                      </div>
-                    </div>
                     <button 
                       onClick={() => setGameStarted(true)}
                       className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-full text-sm md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -305,7 +296,7 @@ export default function Home() {
         {/* More Love Section */}
         {currentSection >= 2 && (
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-2xl w-full text-center border border-pink-300/30 my-4 max-h-screen overflow-y-auto">
+            <div className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-2xl w-full text-center border border-pink-300/30 my-4 max-h-[100dvh] overflow-y-auto">
               <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-8">
                 🌟 Why I Love You, Nikitha 🌟
               </h2>
@@ -347,7 +338,7 @@ export default function Home() {
         {/* True Love Achievement Message */}
         {showMessage && (
           <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-gradient-to-br from-pink-400/40 to-red-400/40 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-lg w-full text-center border-2 border-pink-300/60 shadow-2xl my-4 max-h-screen overflow-y-auto">
+            <div className="bg-gradient-to-br from-pink-400/40 to-red-400/40 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-lg w-full text-center border-2 border-pink-300/60 shadow-2xl my-4 max-h-[100dvh] overflow-y-auto">
               <div className="text-6xl md:text-8xl mb-3 md:mb-4 animate-bounce">🏆</div>
               <h2 className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-4 animate-pulse">
                 TRUE LOVE ACHIEVED! 💖
