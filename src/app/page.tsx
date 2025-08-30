@@ -160,7 +160,7 @@ export default function Home() {
                 
                 <div className="bg-purple-500/10 p-6 rounded-2xl border border-purple-300/20">
                   <h3 className="text-xl font-semibold mb-3 text-purple-300">Your Laugh 😂</h3>
-                  <p>Is the most beautiful sound I've ever heard, music to my soul</p>
+                  <p>Is the most beautiful sound I&apos;ve ever heard, music to my soul</p>
                 </div>
                 
                 <div className="bg-red-500/10 p-6 rounded-2xl border border-red-300/20">
@@ -199,7 +199,7 @@ export default function Home() {
               </p>
               <div className="bg-white/10 p-6 rounded-2xl mb-6">
                 <p className="text-lg text-pink-200 font-semibold">
-                  "Nikitha, you complete me in every way possible. This little website is just a tiny representation of how much you mean to me. I love you more than code loves semicolons! 💻❤️"
+                  &ldquo;Nikitha, you complete me in every way possible. This little website is just a tiny representation of how much you mean to me. I love you more than code loves semicolons! 💻❤️&rdquo;
                 </p>
                 <p className="text-sm text-white/70 mt-4">
                   - Your loving boyfriend, Sanketh 💕
