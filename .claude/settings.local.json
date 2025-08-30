@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npx create-next-app:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }
