@@ -7,12 +7,6 @@ export default function GamePage() {
   const [clickedHearts, setClickedHearts] = useState(0);
   const [showMessage, setShowMessage] = useState(false);
   const [hearts, setHearts] = useState<Array<{id: number, x: number, y: number, speed: number, direction: {x: number, y: number}}>>([]);
-  const [isClient, setIsClient] = useState(false);
-
-  // Ensure client-side only rendering after hydration
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   // Simple speed constant - each heart is 0.2 units faster than the previous
   const SPEED_INCREMENT = 0.4;
@@ -20,14 +14,14 @@ export default function GamePage() {
   const loveStory = [
     "💝 True love begins with the first heart - find it to start your journey!",
     "💕 Two hearts beating as one - your love is growing stronger!",
-    "💖 Three hearts of destiny - you're meant to be together!",
+    "💖 Three hearts of destiny - you&apos;re meant to be together!",
     "💗 Four hearts of trust - you believe in each other completely!",
     "💓 Five hearts of passion - your love burns bright!",
-    "💘 Six hearts of devotion - you're committed to forever!",
-    "💝 Seven hearts of understanding - you know each other's souls!",
+    "💘 Six hearts of devotion - you&apos;re committed to forever!",
+    "💝 Seven hearts of understanding - you know each other&apos;s souls!",
     "💞 Eight hearts of unity - two hearts become one!",
     "💟 Nine hearts of eternity - your love transcends time!",
-    "❤️ Ten hearts of true love - you've proven your love is real! ❤️"
+    "❤️ Ten hearts of true love - you&apos;ve proven your love is real! ❤️"
   ];
 
   const createNewHeart = useCallback((id: number) => {
@@ -57,7 +51,7 @@ export default function GamePage() {
     };
   }, [clickedHearts, SPEED_INCREMENT]);
 
-  const handleHeartClick = (heartId: number) => {
+  const handleHeartClick = () => {
     setClickedHearts(prev => prev + 1);
     // Remove the current heart (next heart will be created by useEffect)
     setHearts([]);
@@ -129,7 +123,7 @@ export default function GamePage() {
           filter: `hue-rotate(${heart.id * 36}deg) brightness(1.2)`, // Different colors for each heart
           animation: `pulse ${Math.max(0.8, 2 - (10 - remainingHearts) * 0.15)}s infinite`
         }}
-        onClick={() => handleHeartClick(heart.id)}
+        onClick={() => handleHeartClick()}
       >
         ❤️
       </div>
@@ -247,7 +241,7 @@ export default function GamePage() {
               <div className="bg-white/15 p-4 md:p-6 rounded-2xl mb-4 md:mb-6 border border-white/20">
                 <h3 className="text-xl md:text-2xl font-bold text-yellow-300 mb-3 md:mb-4">🌟 Love Certificate 🌟</h3>
                 <p className="text-sm md:text-lg text-pink-100 font-semibold leading-relaxed">
-                  "Nikitha, you've just proven that true love conquers all challenges! This little game was created with all my love for you. You mean everything to me, and I wanted to show you in a fun, interactive way. You complete me in every way possible! 💻❤️"
+                  &ldquo;Nikitha, you&apos;ve just proven that true love conquers all challenges! This little game was created with all my love for you. You mean everything to me, and I wanted to show you in a fun, interactive way. You complete me in every way possible! 💻❤️&rdquo;
                 </p>
                 <p className="text-xs md:text-sm text-white/80 mt-3 md:mt-4 italic">
                   - Your loving boyfriend, Sanketh 💕

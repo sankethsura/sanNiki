@@ -39,7 +39,7 @@ export default function LovePage() {
               <div className="bg-purple-500/10 p-6 md:p-8 rounded-2xl border border-purple-300/20 hover:bg-purple-500/20 transition-all duration-300">
                 <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-purple-300">Your Laugh 😂</h3>
                 <p className="text-base md:text-lg leading-relaxed">
-                  The sound of your laughter is the most beautiful melody I've ever heard. It's music to my soul and reminds me that happiness is found in the simplest moments we share.
+                  The sound of your laughter is the most beautiful melody I&apos;ve ever heard. It&apos;s music to my soul and reminds me that happiness is found in the simplest moments we share.
                 </p>
               </div>
               
@@ -53,7 +53,7 @@ export default function LovePage() {
               <div className="bg-blue-500/10 p-6 md:p-8 rounded-2xl border border-blue-300/20 hover:bg-blue-500/20 transition-all duration-300">
                 <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-blue-300">Your Support 🤝</h3>
                 <p className="text-base md:text-lg leading-relaxed">
-                  You believe in me even when I don't believe in myself. Your unwavering support gives me strength and courage to chase my dreams and face any challenge.
+                  You believe in me even when I don&apos;t believe in myself. Your unwavering support gives me strength and courage to chase my dreams and face any challenge.
                 </p>
               </div>
               
@@ -67,7 +67,7 @@ export default function LovePage() {
               <div className="bg-yellow-500/10 p-6 md:p-8 rounded-2xl border border-yellow-300/20 hover:bg-yellow-500/20 transition-all duration-300">
                 <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-yellow-300">Our Future 💫</h3>
                 <p className="text-base md:text-lg leading-relaxed">
-                  Every day with you feels like a new adventure. I'm excited about all the memories we'll create, the places we'll explore, and the love we'll continue to build together.
+                  Every day with you feels like a new adventure. I&apos;m excited about all the memories we&apos;ll create, the places we&apos;ll explore, and the love we&apos;ll continue to build together.
                 </p>
               </div>
             </div>
@@ -76,13 +76,13 @@ export default function LovePage() {
             <div className="bg-white/10 p-6 md:p-8 rounded-2xl border border-white/20 mb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-yellow-300 mb-4">💕 A Special Message 💕</h3>
               <p className="text-lg md:text-xl text-pink-100 font-semibold leading-relaxed mb-4">
-                "Nikitha, creating this website for you has been one of my favorite projects because it gave me a chance to express just a fraction of how much you mean to me. You are my best friend, my greatest love, and my perfect partner in this beautiful journey called life."
+                &ldquo;Nikitha, creating this website for you has been one of my favorite projects because it gave me a chance to express just a fraction of how much you mean to me. You are my best friend, my greatest love, and my perfect partner in this beautiful journey called life.&rdquo;
               </p>
               <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4">
-                "From our late-night conversations to our silly jokes, from your support during tough times to celebrating our wins together - every moment with you is a treasure. You make ordinary days extraordinary just by being you."
+                &ldquo;From our late-night conversations to our silly jokes, from your support during tough times to celebrating our wins together - every moment with you is a treasure. You make ordinary days extraordinary just by being you.&rdquo;
               </p>
               <p className="text-sm md:text-base text-white/80 italic">
-                "I love you more than words can express, more than code can compute, and more than this website can show. But I hope this gives you a small glimpse into my heart. 💻❤️"
+                &ldquo;I love you more than words can express, more than code can compute, and more than this website can show. But I hope this gives you a small glimpse into my heart. 💻❤️&rdquo;
               </p>
               <p className="text-sm md:text-base text-white/70 mt-4">
                 - Forever yours, Sanketh 💕
