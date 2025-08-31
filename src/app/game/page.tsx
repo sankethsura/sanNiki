@@ -6,6 +6,7 @@ export default function GamePage() {
   const [gameStarted, setGameStarted] = useState(false);
   const [clickedHearts, setClickedHearts] = useState(0);
   const [showMessage, setShowMessage] = useState(false);
+  const [showGiveUpModal, setShowGiveUpModal] = useState(false);
   const [hearts, setHearts] = useState<Array<{id: number, x: number, y: number, speed: number, direction: {x: number, y: number}}>>([]);
 
   // Simple speed constant - each heart is 0.2 units faster than the previous
@@ -239,15 +240,63 @@ export default function GamePage() {
 
             {gameStarted && (
               <div className="flex gap-3 md:gap-4 mt-4 md:mt-6">
-                <Link href="/" className="flex-1">
-                  <button className="w-full bg-red-500/20 hover:bg-red-500/30 border border-red-400/30 text-white px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base">
-                    Give Up 💔
-                  </button>
-                </Link>
+                <button 
+                  onClick={() => setShowGiveUpModal(true)}
+                  className="flex-1 bg-red-500/20 hover:bg-red-500/30 border border-red-400/30 text-white px-3 md:px-4 py-2 rounded-full transition-all text-sm md:text-base relative z-[999]"
+                  type="button"
+                  style={{ pointerEvents: 'auto' }}
+                >
+                  Give Up 💔
+                </button>
               </div>
             )}
           </div>
         </div>
+
+        {/* Emotional Give Up Modal */}
+        {showGiveUpModal && (
+          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-gradient-to-br from-red-400/30 to-orange-400/30 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-md w-full text-center border-2 border-red-300/50 shadow-2xl my-4">
+              <div className="text-6xl mb-4 animate-pulse">💔</div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Wait, Nikitha! 🥺
+              </h2>
+              <p className="text-lg text-white/90 mb-6">
+                Are you really giving up on our love quest?
+              </p>
+              
+              <div className="bg-white/10 p-4 md:p-6 rounded-2xl mb-6 border border-white/20">
+                <p className="text-base md:text-lg text-pink-200 font-semibold leading-relaxed">
+                  &ldquo;Hey beautiful, I know the hearts are getting tricky, but that&apos;s just like real love - it gets more challenging but also more rewarding! You&apos;ve already proven you&apos;re amazing by getting this far. Don&apos;t give up on us! 💪💖&rdquo;
+                </p>
+                <p className="text-sm text-white/70 mt-3 italic">
+                  - Your encouraging boyfriend, Sanketh 💕
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-4 rounded-2xl mb-6 border border-blue-300/30">
+                <p className="text-sm font-bold text-blue-200 mb-2">💡 Encouragement Tip:</p>
+                <p className="text-white text-xs leading-relaxed">
+                  Try clicking a bit ahead of where the heart is moving! You&apos;ve got this, my love! 🎯💕
+                </p>
+              </div>
+
+              <div className="flex gap-2 md:gap-3">
+                <button 
+                  onClick={() => setShowGiveUpModal(false)}
+                  className="flex-1 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-3 md:px-4 py-2 md:py-3 rounded-full transition-all text-xs md:text-sm font-semibold"
+                >
+                  Keep Trying! 💪
+                </button>
+                <Link href="/" className="flex-1">
+                  <button className="w-full bg-gradient-to-r from-red-500 to-gray-500 hover:from-red-600 hover:to-gray-600 text-white px-3 md:px-4 py-2 md:py-3 rounded-full transition-all text-xs md:text-sm font-semibold">
+                    Really Give Up 😢
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* True Love Achievement Message */}
         {showMessage && (
