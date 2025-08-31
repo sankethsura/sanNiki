@@ -52,11 +52,20 @@ export default function GamePage() {
   }, [clickedHearts, SPEED_INCREMENT]);
 
   const handleHeartClick = () => {
-    setClickedHearts(prev => prev + 1);
+    console.log("🚨 HEART CLICKED! Current clickedHearts:", clickedHearts);
+    console.log("🚨 Hearts array length:", hearts.length);
+    
+    setClickedHearts(prev => {
+      console.log("🚨 Incrementing hearts from", prev, "to", prev + 1);
+      return prev + 1;
+    });
+    
     // Remove the current heart (next heart will be created by useEffect)
     setHearts([]);
+    console.log("🚨 Hearts array cleared");
     
     if (clickedHearts >= 9) {
+      console.log("🚨 GAME WON! Showing victory message");
       setShowMessage(true);
       setHearts([]);
     }
@@ -109,21 +118,35 @@ export default function GamePage() {
   const FloatingHeart = ({ heart }: { heart: {id: number, x: number, y: number, speed: number, direction: {x: number, y: number}} }) => {
     // Size gets smaller as fewer hearts remain (more challenging)
     const remainingHearts = 10 - clickedHearts;
-    const size = Math.max(20, 25 + remainingHearts * 2); // Hearts get smaller as fewer remain
-    const opacity = Math.max(0.8, 1 - ((10 - remainingHearts) * 0.02)); // Slightly more transparent as game progresses
+    const size = Math.max(30, 40 + remainingHearts * 2); // Made hearts bigger and easier to click
+    const opacity = Math.max(0.9, 1 - ((10 - remainingHearts) * 0.01)); // More visible
     
     return (
       <div 
-        className="absolute cursor-pointer transition-all duration-200 hover:scale-125 z-30"
+        className="absolute cursor-pointer transition-all duration-200 hover:scale-125 select-none"
         style={{
           left: `${heart.x}%`,
           top: `${heart.y}%`,
           fontSize: `${size}px`,
           opacity: opacity,
-          filter: `hue-rotate(${heart.id * 36}deg) brightness(1.2)`, // Different colors for each heart
-          animation: `pulse ${Math.max(0.8, 2 - (10 - remainingHearts) * 0.15)}s infinite`
+          filter: `hue-rotate(${heart.id * 36}deg) brightness(1.2)`,
+          animation: `pulse ${Math.max(0.8, 2 - (10 - remainingHearts) * 0.15)}s infinite`,
+          zIndex: 1000, // High z-index to ensure clickability
+          pointerEvents: 'auto',
+          userSelect: 'none'
         }}
-        onClick={() => handleHeartClick()}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log("🚨 HEART DIV CLICKED!");
+          handleHeartClick();
+        }}
+        onMouseDown={(e) => {
+          console.log("🚨 HEART MOUSE DOWN!");
+        }}
+        onMouseUp={(e) => {
+          console.log("🚨 HEART MOUSE UP!");
+        }}
       >
         ❤️
       </div>
@@ -131,7 +154,7 @@ export default function GamePage() {
   };
 
   return (
-    <div className="h-screen h-[100dvh] bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
+    <div className="h-[100dvh] bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -141,9 +164,9 @@ export default function GamePage() {
 
       {/* Moving Hearts Game */}
       {gameStarted && (
-        <div className="absolute inset-0 z-20 pointer-events-none">
+        <div className="absolute inset-0 z-20 pointer-events-none" style={{ zIndex: 999 }}>
           {hearts.map((heart) => (
-            <div key={heart.id} className="pointer-events-auto">
+            <div key={heart.id} className="pointer-events-auto" style={{ zIndex: 1001 }}>
               <FloatingHeart heart={heart} />
             </div>
           ))}
