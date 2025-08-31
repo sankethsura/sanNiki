@@ -189,7 +189,7 @@ export default function GamePage() {
         <div className="flex-1 flex items-center justify-center p-4">
           <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 md:p-8 max-w-lg w-full text-center border border-white/20">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
-              💕 Prove Your True Love, Nikitha 💕
+              💕 Prove Your True Love, Chinnamma 💕
             </h2>
             
             <div className="space-y-3 md:space-y-4 text-white/90 text-base md:text-lg">
@@ -259,7 +259,7 @@ export default function GamePage() {
             <div className="bg-gradient-to-br from-red-400/30 to-orange-400/30 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-md w-full text-center border-2 border-red-300/50 shadow-2xl my-4">
               <div className="text-6xl mb-4 animate-pulse">💔</div>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Wait, Nikitha! 🥺
+                Wait, Chinnamma! 🥺
               </h2>
               <p className="text-lg text-white/90 mb-6">
                 Are you really giving up on our love quest?
@@ -313,7 +313,7 @@ export default function GamePage() {
               <div className="bg-white/15 p-4 md:p-6 rounded-2xl mb-4 md:mb-6 border border-white/20">
                 <h3 className="text-xl md:text-2xl font-bold text-yellow-300 mb-3 md:mb-4">🌟 Love Certificate 🌟</h3>
                 <p className="text-sm md:text-lg text-pink-100 font-semibold leading-relaxed">
-                  &ldquo;Nikitha, you&apos;ve just proven that true love conquers all challenges! This little game was created with all my love for you. You mean everything to me, and I wanted to show you in a fun, interactive way. You complete me in every way possible! 💻❤️&rdquo;
+                  &ldquo;Chinnamma, you&apos;ve just proven that true love conquers all challenges! This little game was created with all my love for you. You mean everything to me, and I wanted to show you in a fun, interactive way. You complete me in every way possible! 💻❤️&rdquo;
                 </p>
                 <p className="text-xs md:text-sm text-white/80 mt-3 md:mt-4 italic">
                   - Your loving boyfriend, Sanketh 💕

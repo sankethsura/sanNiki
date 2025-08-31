@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function LovePage() {
   return (
-    <div className="h-screen h-[100dvh] bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
+    <div className="h-[100dvh] bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -25,7 +25,7 @@ export default function LovePage() {
         <div className="flex-1 p-4 pt-16 overflow-y-auto">
           <div className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-md rounded-3xl p-4 md:p-8 max-w-4xl w-full mx-auto text-center border border-pink-300/30 min-h-max">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 md:mb-10">
-              🌟 Why I Love You, Nikitha 🌟
+              🌟 Why I Love You, Chinnamma 🌟
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-white/90 mb-8 md:mb-12">
@@ -76,7 +76,7 @@ export default function LovePage() {
             <div className="bg-white/10 p-6 md:p-8 rounded-2xl border border-white/20 mb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-yellow-300 mb-4">💕 A Special Message 💕</h3>
               <p className="text-lg md:text-xl text-pink-100 font-semibold leading-relaxed mb-4">
-                &ldquo;Nikitha, creating this website for you has been one of my favorite projects because it gave me a chance to express just a fraction of how much you mean to me. You are my best friend, my greatest love, and my perfect partner in this beautiful journey called life.&rdquo;
+                &ldquo;Chinnamma, creating this website for you has been one of my favorite things to do because it gave me a chance to express just a fraction of how much you mean to me. You are my best friend, my greatest love, and my perfect partner in this beautiful journey called life.&rdquo;
               </p>
               <p className="text-base md:text-lg text-white/90 leading-relaxed mb-4">
                 &ldquo;From our late-night conversations to our silly jokes, from your support during tough times to celebrating our wins together - every moment with you is a treasure. You make ordinary days extraordinary just by being you.&rdquo;

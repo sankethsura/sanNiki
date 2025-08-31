@@ -45,7 +45,7 @@ export default function MemoryGame() {
 
   const finalMessages = [
     "🎉 INCREDIBLE! You matched all pairs with perfect love!",
-    "💖 Your memory is as perfect as your heart, Nikitha!",
+    "💖 Your memory is as perfect as your heart, Chinnamma!",
     "🏆 Love Conquers All - and you just proved it!"
   ];
 
@@ -203,7 +203,7 @@ export default function MemoryGame() {
                   🧠💕 Love Memory Match 💕🧠
                 </h1>
                 <p className="text-lg md:text-xl text-white/90 mb-6">
-                  Test your memory and prove your love, Nikitha!
+                  Test your memory and prove your love, Chinnamma!
                 </p>
                 
                 <div className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 p-6 rounded-2xl border border-pink-300/30 mb-6">
