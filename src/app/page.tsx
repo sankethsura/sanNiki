@@ -1,15 +1,60 @@
+'use client';
 import Link from 'next/link';
 
 export default function Home() {
 
   return (
     <div className="h-[100dvh] bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900 relative overflow-hidden">
-      {/* Animated background */}
+      {/* Animated background with heartbeat effect */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-rose-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+        {/* Large romantic orbs with slow, profound heartbeat */}
+        <div 
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-pink-400/30 to-rose-400/25 rounded-full blur-[100px]"
+          style={{
+            animation: 'heartbeat 3s ease-in-out infinite'
+          }}
+        ></div>
+        <div 
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-to-r from-purple-400/25 to-indigo-400/30 rounded-full blur-[80px]"
+          style={{
+            animation: 'heartbeat 4s ease-in-out infinite 1.5s'
+          }}
+        ></div>
+        <div 
+          className="absolute top-2/3 left-1/2 w-[300px] h-[300px] bg-gradient-to-r from-red-400/20 to-pink-400/25 rounded-full blur-[60px]"
+          style={{
+            animation: 'heartbeat 2.5s ease-in-out infinite 0.8s'
+          }}
+        ></div>
+        
+        {/* Floating sparkles */}
+        <div className="absolute top-1/6 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-ping"></div>
+        <div className="absolute bottom-1/3 left-1/6 w-1 h-1 bg-yellow-300/80 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/6 w-1.5 h-1.5 bg-pink-300/70 rounded-full animate-ping" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute bottom-1/6 right-2/3 w-1 h-1 bg-purple-300/60 rounded-full animate-ping" style={{ animationDelay: '6s' }}></div>
       </div>
+
+      {/* Custom heartbeat animation */}
+      <style jsx>{`
+        @keyframes heartbeat {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          25% {
+            transform: scale(1.05);
+            opacity: 0.8;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 1;
+          }
+          75% {
+            transform: scale(1.05);
+            opacity: 0.8;
+          }
+        }
+      `}</style>
 
       {/* Main Content */}
       <div className="relative z-10 h-full flex flex-col">
