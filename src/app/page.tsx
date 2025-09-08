@@ -8,7 +8,7 @@ export default function Home() {
   const [floatingHearts, setFloatingHearts] = useState<Array<{id: number, x: number, delay: number, driftStart: number, driftEnd: number, hue: number}>>([]);
   const [typewriterText, setTypewriterText] = useState("");
 
-  const birthdayDate = new Date('2025-09-08T00:41:00').getTime();
+  const birthdayDate = new Date('2025-09-08T10:30:40').getTime();
   const loveMessage = "My dearest Nikitha, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
 
   // Countdown timer logic
@@ -135,7 +135,7 @@ export default function Home() {
       {/* Enhanced Easter Egg */}
       {showEasterEgg && (
         <div className="fixed inset-0 pointer-events-none z-50">
-          {floatingHearts.map((heart, index) => (
+          {floatingHearts.map((heart) => (
             <div
               key={heart.id}
               className="floating-heart absolute text-2xl"
@@ -258,7 +258,7 @@ export default function Home() {
                   Today is your day
                 </h2>
                 <p className="text-xl text-slate-300 font-light">
-                  Hope it's as wonderful as you are
+                  Hope it&apos;s as wonderful as you are
                 </p>
               </div>
             )}
@@ -334,7 +334,7 @@ export default function Home() {
                         </h4>
                         <p className="text-slate-300 leading-relaxed font-light text-lg">
                           Add a beautiful caption describing this special moment we shared together. 
-                          Every memory with you is a treasure that I'll cherish forever.
+                          Every memory with you is a treasure that I&apos;ll cherish forever.
                         </p>
                       </div>
                     </div>
