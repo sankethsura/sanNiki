@@ -143,9 +143,7 @@ export default function Home() {
                 left: `${heart.x}%`,
                 bottom: '0px',
                 animationDelay: `${heart.delay}s`,
-                filter: `hue-rotate(${heart.hue}deg)`,
-                ['--drift-start' as any]: `${heart.driftStart}px`,
-                ['--drift-end' as any]: `${heart.driftEnd}px`
+                filter: `hue-rotate(${heart.hue}deg)`
               }}
             >
               💜
