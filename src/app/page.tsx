@@ -349,7 +349,7 @@ export default function Home() {
                   <div className="space-y-8 text-lg md:text-xl text-slate-200 leading-relaxed font-light">
                     <p>
                       Even when distance keeps us apart, know that my heart remains forever close to yours. 
-                      Though I may not always find the perfect words to express what's in my soul, 
+                      Though I may not always find the perfect words to express what&apos;s in my soul, 
                       my love for you flows deeper than any ocean, purer than any star in the night sky.
                     </p>
                     <p>
@@ -378,7 +378,7 @@ export default function Home() {
       <div className="py-16">
         <div className="max-w-4xl mx-auto text-center px-8">
           <blockquote className="text-2xl md:text-3xl font-light text-white italic">
-            "Your smile is my favorite sight in this world - I live to see it light up your face every single day"
+&quot;Your smile is my favorite sight in this world - I live to see it light up your face every single day&quot;
           </blockquote>
         </div>
       </div>
