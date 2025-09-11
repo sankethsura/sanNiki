@@ -413,16 +413,18 @@ export default function Home() {
       </main>
 
       {/* Final Quote */}
-      <div className="py-16">
-        <div className="max-w-4xl mx-auto text-center px-8">
-          <blockquote className="text-2xl md:text-3xl font-light text-white italic mb-8">
+      {isCountdownFinished && (
+        <div className="py-16">
+          <div className="max-w-4xl mx-auto text-center px-8">
+            <blockquote className="text-2xl md:text-3xl font-light text-white italic mb-8">
 &quot;I just want to see you smiling always - your happiness is everything to me&quot;
-          </blockquote>
-          <blockquote className="text-xl md:text-2xl font-light text-slate-200 italic">
-            &quot;No matter how many gifts I give you, it can never match the love and happiness you have given me&quot;
-          </blockquote>
+            </blockquote>
+            <blockquote className="text-2xl md:text-3xl font-light text-white italic">
+              &quot;No matter how many gifts I give you, it can never match the love and happiness you have given me&quot;
+            </blockquote>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Footer */}
       <footer className="elegant-card border-t border-white/10 py-10">
