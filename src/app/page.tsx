@@ -8,7 +8,7 @@ export default function Home() {
 
   const birthdayDate = new Date("2025-09-12T00:00:00").getTime();
   const loveMessage =
-    "My dearest Chinaama, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
+    "My dearest Chinaama, being with you makes me so happy every single day. Your smile, your laugh, everything about you just makes my world so much brighter. I am so excited to celebrate your birthday and make many more beautiful memories with you. I love you so much.";
 
   // Countdown timer logic
   useEffect(() => {
@@ -348,15 +348,14 @@ export default function Home() {
                   </h3>
                   <div className="space-y-8 text-lg md:text-xl text-slate-200 leading-relaxed font-light">
                     <p>
-                      Even when distance keeps us apart, know that my heart remains forever close to yours. 
-                      Though I may not always find the perfect words to express what&apos;s in my soul, 
-                      my love for you flows deeper than any ocean, purer than any star in the night sky.
+                      Even when we are not together, my heart is always with you. 
+                      I may not always say the right things, but please know that 
+                      my love for you is true and will never change.
                     </p>
                     <p>
-                      We are two souls perfectly crafted for each other, completing what the other lacks, 
-                      strengthening what the other possesses. In your eyes, I see our beautiful tomorrow - 
-                      a canvas of endless adventures waiting to be painted with the most vibrant colors of joy, 
-                      laughter, and unconditional love.
+                      We are perfect for each other - you complete me in every way. 
+                      When I look at you, I see our future together full of happiness, 
+                      adventures, and so much love. I want to make every day colorful for you.
                     </p>
                     <p className="text-xl md:text-2xl font-normal" style={{
                       background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
@@ -364,7 +363,7 @@ export default function Home() {
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text'
                     }}>
-                      Together, we will write the most beautiful love story the world has ever seen.
+                      Together, we will have the most beautiful life anyone could ask for.
                     </p>
                   </div>
                 </div>
@@ -377,8 +376,11 @@ export default function Home() {
       {/* Final Quote */}
       <div className="py-16">
         <div className="max-w-4xl mx-auto text-center px-8">
-          <blockquote className="text-2xl md:text-3xl font-light text-white italic">
-&quot;Your smile is my favorite sight in this world - I live to see it light up your face every single day&quot;
+          <blockquote className="text-2xl md:text-3xl font-light text-white italic mb-8">
+&quot;I just want to see you smiling always - your happiness is everything to me&quot;
+          </blockquote>
+          <blockquote className="text-xl md:text-2xl font-light text-slate-200 italic">
+            &quot;No matter how many gifts I give you, it can never match the love and happiness you have given me&quot;
           </blockquote>
         </div>
       </div>
