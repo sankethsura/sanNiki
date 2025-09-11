@@ -6,7 +6,7 @@ export default function Home() {
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
   const [typewriterText, setTypewriterText] = useState("");
 
-  const birthdayDate = new Date("2025-09-11T20:38:00").getTime();
+  const birthdayDate = new Date("2025-09-12T00:00:00").getTime();
   const loveMessage =
     "My dearest Chinaama, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
 
