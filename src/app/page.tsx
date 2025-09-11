@@ -1,15 +1,25 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
-  const [floatingHearts, setFloatingHearts] = useState<Array<{id: number, x: number, delay: number, driftStart: number, driftEnd: number, hue: number}>>([]);
+  const [floatingHearts, setFloatingHearts] = useState<
+    Array<{
+      id: number;
+      x: number;
+      delay: number;
+      driftStart: number;
+      driftEnd: number;
+      hue: number;
+    }>
+  >([]);
   const [typewriterText, setTypewriterText] = useState("");
 
-  const birthdayDate = new Date('2025-09-08T10:30:40').getTime();
-  const loveMessage = "My dearest Nikitha, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
+  const birthdayDate = new Date("2025-09-12T00:00:00").getTime();
+  const loveMessage =
+    "My dearest Nikitha, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
 
   // Countdown timer logic
   useEffect(() => {
@@ -51,7 +61,7 @@ export default function Home() {
   // Enhanced Easter egg with pre-calculated values
   const triggerEasterEgg = () => {
     setShowEasterEgg(true);
-    
+
     const numHearts = 8;
     const hearts = Array.from({ length: numHearts }, (_, i) => ({
       id: Date.now() + i + Math.random() * 1000,
@@ -59,11 +69,11 @@ export default function Home() {
       delay: i * 0.3,
       driftStart: (Math.random() - 0.5) * 15,
       driftEnd: (Math.random() - 0.5) * 30,
-      hue: Math.random() * 20
+      hue: Math.random() * 20,
     }));
-    
+
     setFloatingHearts(hearts);
-    
+
     setTimeout(() => {
       setShowEasterEgg(false);
       setFloatingHearts([]);
@@ -71,25 +81,35 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen" style={{
-      background: 'linear-gradient(135deg, #0f172a 0%, #581c87 25%, #7c2d12 45%, #881337 65%, #4c1d95 85%, #0f172a 100%)'
-    }}>
+    <div
+      className="min-h-screen"
+      style={{
+        background:
+          "linear-gradient(135deg, #0f172a 0%, #581c87 25%, #7c2d12 45%, #881337 65%, #4c1d95 85%, #0f172a 100%)",
+      }}
+    >
       {/* Minimal CSS */}
       <style jsx>{`
         .typewriter::after {
-          content: '|';
+          content: "|";
           animation: blink 1s infinite;
           background: linear-gradient(135deg, #e879f9, #be185d, #881337);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
-        
+
         @keyframes blink {
-          0%, 50% { opacity: 1; }
-          51%, 100% { opacity: 0; }
+          0%,
+          50% {
+            opacity: 1;
+          }
+          51%,
+          100% {
+            opacity: 0;
+          }
         }
-        
+
         @keyframes heartFloat {
           0% {
             opacity: 0;
@@ -108,26 +128,31 @@ export default function Home() {
             transform: translateY(-100vh) translateX(var(--drift-end)) scale(0.9);
           }
         }
-        
+
         .floating-heart {
           animation: heartFloat 4s ease-out forwards;
           opacity: 0;
           will-change: transform, opacity;
         }
-        
+
         .elegant-card {
           backdrop-filter: blur(20px);
           background: rgba(255, 255, 255, 0.08);
           border: 1px solid rgba(255, 255, 255, 0.12);
         }
-        
+
         .elegant-hover {
           transition: all 0.3s ease;
         }
-        
+
         .elegant-hover:hover {
           transform: translateY(-2px);
-          background: linear-gradient(135deg, rgba(232, 121, 249, 0.1), rgba(190, 24, 93, 0.1), rgba(136, 19, 55, 0.1));
+          background: linear-gradient(
+            135deg,
+            rgba(232, 121, 249, 0.1),
+            rgba(190, 24, 93, 0.1),
+            rgba(136, 19, 55, 0.1)
+          );
           border: 1px solid rgba(232, 121, 249, 0.3);
         }
       `}</style>
@@ -141,9 +166,9 @@ export default function Home() {
               className="floating-heart absolute text-2xl"
               style={{
                 left: `${heart.x}%`,
-                bottom: '0px',
+                bottom: "0px",
                 animationDelay: `${heart.delay}s`,
-                filter: `hue-rotate(${heart.hue}deg)`
+                filter: `hue-rotate(${heart.hue}deg)`,
               }}
             >
               💜
@@ -157,20 +182,24 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-8 py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <span 
+              <span
                 className="text-2xl font-light text-slate-200 cursor-pointer hover:text-white transition-colors"
                 onClick={triggerEasterEgg}
               >
                 San
               </span>
-              <span style={{
-                background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                scale: "150%"
-              }}>♥</span>
-              <span 
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #e879f9, #be185d, #881337)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  scale: "150%",
+                }}
+              >
+                ♥
+              </span>
+              <span
                 className="text-2xl font-light text-slate-200 cursor-pointer hover:text-white transition-colors"
                 onClick={triggerEasterEgg}
               >
@@ -191,12 +220,17 @@ export default function Home() {
                 <h1 className="text-6xl md:text-8xl font-thin text-white mb-8 leading-tight tracking-tight">
                   Something Special
                   <br />
-                  <span className="font-light" style={{
-                    background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>Is Coming</span>
+                  <span
+                    className="font-light"
+                    style={{
+                      background: "linear-gradient(135deg, #e879f9, #be185d, #881337)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    Is Coming
+                  </span>
                 </h1>
                 <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
                   A moment in time reserved just for you
@@ -207,12 +241,17 @@ export default function Home() {
                 <h1 className="text-6xl md:text-8xl font-thin text-white mb-8 leading-tight tracking-tight">
                   Happy Birthday
                   <br />
-                  <span className="font-light" style={{
-                    background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>Nikitha</span>
+                  <span
+                    className="font-light"
+                    style={{
+                      background: "linear-gradient(135deg, #e879f9, #be185d, #881337)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    Love
+                  </span>
                 </h1>
                 <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
                   Celebrating another year of your extraordinary journey
@@ -225,34 +264,37 @@ export default function Home() {
               <div className="mb-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
                   {[
-                    { label: 'Days', value: timeLeft.days },
-                    { label: 'Hours', value: timeLeft.hours },
-                    { label: 'Minutes', value: timeLeft.minutes },
-                    { label: 'Seconds', value: timeLeft.seconds }
+                    { label: "Days", value: timeLeft.days },
+                    { label: "Hours", value: timeLeft.hours },
+                    { label: "Minutes", value: timeLeft.minutes },
+                    { label: "Seconds", value: timeLeft.seconds },
                   ].map((item) => (
-                    <div key={item.label} className="elegant-card rounded-xl p-8 elegant-hover">
+                    <div key={item.label} className="elegant-card rounded-xl p-8 elegant-hover text-center">
                       <div className="text-4xl md:text-5xl font-thin text-white mb-4">
-                        {item.value.toString().padStart(2, '0')}
+                        {item.value.toString().padStart(2, "0")}
                       </div>
-                      <div className="text-xs text-slate-400 uppercase tracking-[0.2em] font-light">
+                      <div className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-light">
                         {item.label}
                       </div>
                     </div>
                   ))}
                 </div>
-                
+
                 <p className="text-slate-400 font-light text-center mt-8">
                   Every second brings us closer to unveiling your surprise
                 </p>
               </div>
             ) : (
               <div className="mb-20">
-                <h2 className="text-4xl md:text-6xl font-thin mb-6" style={{
-                  background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>
+                <h2
+                  className="text-4xl md:text-6xl font-thin mb-6"
+                  style={{
+                    background: "linear-gradient(135deg, #e879f9, #be185d, #881337)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
                   Today is your day
                 </h2>
                 <p className="text-xl text-slate-300 font-light">
@@ -286,19 +328,18 @@ export default function Home() {
                 <h3 className="text-3xl md:text-4xl font-thin text-white text-center mb-20">
                   Our memories
                 </h3>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {[...Array(9)].map((_, i) => (
-                    <div 
-                      key={i} 
-                      className="elegant-card rounded-xl aspect-square flex items-center justify-center elegant-hover group"
+                    <div
+                      key={i}
+                      className="elegant-card rounded-xl aspect-square overflow-hidden elegant-hover group"
                     >
-                      <div className="text-center">
-                        <div className="w-16 h-16 border border-slate-400 rounded-lg mb-4 mx-auto flex items-center justify-center group-hover:border-slate-300 transition-colors">
-                          <div className="text-slate-400 text-2xl group-hover:text-slate-300 transition-colors">+</div>
-                        </div>
-                        <p className="text-slate-400 text-sm font-light">Photo {i + 1}</p>
-                      </div>
+                      <img
+                        src={`/${i + 1}.jpeg`}
+                        alt={`Memory ${i + 1}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                   ))}
                 </div>
@@ -311,32 +352,70 @@ export default function Home() {
                 <h3 className="text-3xl md:text-4xl font-thin text-white text-center mb-24">
                   Special moments
                 </h3>
-                
+
                 <div className="space-y-24">
-                  {[...Array(3)].map((_, i) => (
-                    <div key={i} className={`flex flex-col ${i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16`}>
-                      <div className="w-full lg:w-1/2">
-                        <div className="elegant-card rounded-xl aspect-video flex items-center justify-center elegant-hover group">
-                          <div className="text-center">
-                            <div className="w-20 h-20 border border-slate-400 rounded-lg mx-auto flex items-center justify-center group-hover:border-slate-300 transition-colors mb-4">
-                              <div className="text-slate-400 text-3xl group-hover:text-slate-300 transition-colors">+</div>
-                            </div>
-                            <p className="text-slate-400 font-light">Memory {i + 1}</p>
-                          </div>
+                  <div className="flex flex-col lg:flex-row items-center gap-16">
+                    <div className="w-full lg:w-1/2">
+                      <div className="elegant-card rounded-xl aspect-video flex items-center justify-center elegant-hover group">
+                        <div className="text-center">
+                          <img
+                            src={`/${8}.jpeg`}
+                            alt={`Memory 8`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
                       </div>
-                      
-                      <div className="w-full lg:w-1/2 text-center lg:text-left">
-                        <h4 className="text-2xl md:text-3xl font-thin text-white mb-8">
-                          Caption {i + 1}
-                        </h4>
-                        <p className="text-slate-300 leading-relaxed font-light text-lg">
-                          Add a beautiful caption describing this special moment we shared together. 
-                          Every memory with you is a treasure that I&apos;ll cherish forever.
-                        </p>
+                    </div>
+
+                    <div className="w-full lg:w-1/2 text-center lg:text-left">
+                      <h4 className="text-2xl md:text-3xl font-thin text-white mb-8">Our First Selfie</h4>
+                      <p className="text-slate-300 leading-relaxed font-light text-lg">
+                        That nervous excitement captured in a single frame - the beginning of countless photos together. I remember being amazed that someone so beautiful wanted to take a picture with me. Little did I know it would be the first of thousands, each one marking another precious moment in our love story.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
+                    <div className="w-full lg:w-1/2">
+                      <div className="elegant-card rounded-xl aspect-video flex items-center justify-center elegant-hover group">
+                        <div className="text-center">
+                        <img
+                            src={`/${6}.jpeg`}
+                            alt={`Memory 6`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                     </div>
-                  ))}
+
+                    <div className="w-full lg:w-1/2 text-center lg:text-left">
+                      <h4 className="text-2xl md:text-3xl font-thin text-white mb-8">The Drive That Changed Everything</h4>
+                      <p className="text-slate-300 leading-relaxed font-light text-lg">
+                        Miles of open road, music playing softly, and my heart pounding with anticipation. When I finally found the courage to ask you to be mine, your excitement lit up the entire car brighter than any sunset. That yes, that beautiful, enthusiastic yes - it turned a simple drive into the most magical journey of our lives.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col lg:flex-row items-center gap-16">
+                    <div className="w-full lg:w-1/2">
+                      <div className="elegant-card rounded-xl aspect-video flex items-center justify-center elegant-hover group">
+                        <div className="text-center">
+                        <img
+                            src={`/${4}.jpeg`}
+                            alt={`Memory 4`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="w-full lg:w-1/2 text-center lg:text-left">
+                      <h4 className="text-2xl md:text-3xl font-thin text-white mb-8">That Electric Moment</h4>
+                      <p className="text-slate-300 leading-relaxed font-light text-lg">
+                        Time seemed to stop as we drew closer, hearts racing in perfect synchronization. That tender touch of our lips sparked something magical - pure joy, overwhelming happiness, and an excitement that made us both laugh like giddy teenagers. In that beautiful moment, the whole world felt new and full of endless possibilities.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -348,12 +427,18 @@ export default function Home() {
       <footer className="elegant-card border-t border-white/10 py-10">
         <div className="max-w-4xl mx-auto text-center px-8">
           <p className="text-slate-300 font-light mb-2">
-            Made with <span style={{
-              background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>love</span> by Sanketh for Nikitha
+            Made with{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #e879f9, #be185d, #881337)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              love
+            </span>{" "}
+            by Sanketh for Nikitha
           </p>
         </div>
       </footer>
