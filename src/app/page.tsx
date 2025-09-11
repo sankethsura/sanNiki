@@ -4,22 +4,11 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
-  const [showEasterEgg, setShowEasterEgg] = useState(false);
-  const [floatingHearts, setFloatingHearts] = useState<
-    Array<{
-      id: number;
-      x: number;
-      delay: number;
-      driftStart: number;
-      driftEnd: number;
-      hue: number;
-    }>
-  >([]);
   const [typewriterText, setTypewriterText] = useState("");
 
-  const birthdayDate = new Date("2025-09-12T00:00:00").getTime();
+  const birthdayDate = new Date("2025-09-11T20:38:00").getTime();
   const loveMessage =
-    "My dearest Nikitha, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
+    "My dearest Chinaama, every moment with you feels like a celebration. You light up my world with your smile, your laugh, and your beautiful heart. Here's to another year of making incredible memories together. I love you more than words can express.";
 
   // Countdown timer logic
   useEffect(() => {
@@ -58,27 +47,6 @@ export default function Home() {
     return () => clearInterval(typeTimer);
   }, [loveMessage]);
 
-  // Enhanced Easter egg with pre-calculated values
-  const triggerEasterEgg = () => {
-    setShowEasterEgg(true);
-
-    const numHearts = 8;
-    const hearts = Array.from({ length: numHearts }, (_, i) => ({
-      id: Date.now() + i + Math.random() * 1000,
-      x: Math.random() * 80 + 10,
-      delay: i * 0.3,
-      driftStart: (Math.random() - 0.5) * 15,
-      driftEnd: (Math.random() - 0.5) * 30,
-      hue: Math.random() * 20,
-    }));
-
-    setFloatingHearts(hearts);
-
-    setTimeout(() => {
-      setShowEasterEgg(false);
-      setFloatingHearts([]);
-    }, 4000);
-  };
 
   return (
     <div
@@ -110,30 +78,6 @@ export default function Home() {
           }
         }
 
-        @keyframes heartFloat {
-          0% {
-            opacity: 0;
-            transform: translateY(0) translateX(0) scale(0.6);
-          }
-          8% {
-            opacity: 1;
-            transform: translateY(-8vh) translateX(var(--drift-start)) scale(1);
-          }
-          92% {
-            opacity: 1;
-            transform: translateY(-92vh) translateX(var(--drift-end)) scale(1);
-          }
-          100% {
-            opacity: 0;
-            transform: translateY(-100vh) translateX(var(--drift-end)) scale(0.9);
-          }
-        }
-
-        .floating-heart {
-          animation: heartFloat 4s ease-out forwards;
-          opacity: 0;
-          will-change: transform, opacity;
-        }
 
         .elegant-card {
           backdrop-filter: blur(20px);
@@ -157,35 +101,13 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Enhanced Easter Egg */}
-      {showEasterEgg && (
-        <div className="fixed inset-0 pointer-events-none z-50">
-          {floatingHearts.map((heart) => (
-            <div
-              key={heart.id}
-              className="floating-heart absolute text-2xl"
-              style={{
-                left: `${heart.x}%`,
-                bottom: "0px",
-                animationDelay: `${heart.delay}s`,
-                filter: `hue-rotate(${heart.hue}deg)`,
-              }}
-            >
-              💜
-            </div>
-          ))}
-        </div>
-      )}
 
       {/* Header */}
       <header className="elegant-card border-b border-white/10">
         <div className="max-w-5xl mx-auto px-8 py-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <span
-                className="text-2xl font-light text-slate-200 cursor-pointer hover:text-white transition-colors"
-                onClick={triggerEasterEgg}
-              >
+              <span className="text-2xl font-light text-slate-200">
                 San
               </span>
               <span
@@ -199,10 +121,7 @@ export default function Home() {
               >
                 ♥
               </span>
-              <span
-                className="text-2xl font-light text-slate-200 cursor-pointer hover:text-white transition-colors"
-                onClick={triggerEasterEgg}
-              >
+              <span className="text-2xl font-light text-slate-200">
                 Niki
               </span>
             </div>
@@ -250,11 +169,11 @@ export default function Home() {
                       backgroundClip: "text",
                     }}
                   >
-                    Love
+                    Niki
                   </span>
                 </h1>
                 <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
-                  Celebrating another year of your extraordinary journey
+                  Your first birthday with me - the start of celebrating you forever
                 </p>
               </div>
             )}
@@ -298,7 +217,7 @@ export default function Home() {
                   Today is your day
                 </h2>
                 <p className="text-xl text-slate-300 font-light">
-                  Hope it&apos;s as wonderful as you are
+                  I promise to fill your life with endless colors of love and joy
                 </p>
               </div>
             )}
@@ -318,30 +237,6 @@ export default function Home() {
                   <blockquote className="text-lg md:text-xl text-slate-200 leading-relaxed font-light typewriter italic">
                     {typewriterText}
                   </blockquote>
-                </div>
-              </div>
-            </section>
-
-            {/* Photo Gallery Section */}
-            <section className="py-32">
-              <div className="max-w-6xl mx-auto px-8">
-                <h3 className="text-3xl md:text-4xl font-thin text-white text-center mb-20">
-                  Our memories
-                </h3>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {[...Array(9)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="elegant-card rounded-xl aspect-square overflow-hidden elegant-hover group"
-                    >
-                      <img
-                        src={`/${i + 1}.jpeg`}
-                        alt={`Memory ${i + 1}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  ))}
                 </div>
               </div>
             </section>
@@ -419,9 +314,74 @@ export default function Home() {
                 </div>
               </div>
             </section>
+
+            {/* Photo Gallery Section */}
+            <section className="py-32">
+              <div className="max-w-6xl mx-auto px-8">
+                <h3 className="text-3xl md:text-4xl font-thin text-white text-center mb-20">
+                  Our memories
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {[...Array(9)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="elegant-card rounded-xl aspect-square overflow-hidden elegant-hover group"
+                    >
+                      <img
+                        src={`/${i + 1}.jpeg`}
+                        alt={`Memory ${i + 1}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Promise Section */}
+            <section className="py-32">
+              <div className="max-w-4xl mx-auto text-center px-8">
+                <div className="elegant-card rounded-2xl p-12 md:p-20">
+                  <h3 className="text-3xl md:text-4xl font-thin text-white mb-16">
+                    My promise to you
+                  </h3>
+                  <div className="space-y-8 text-lg md:text-xl text-slate-200 leading-relaxed font-light">
+                    <p>
+                      Even when distance keeps us apart, know that my heart remains forever close to yours. 
+                      Though I may not always find the perfect words to express what's in my soul, 
+                      my love for you flows deeper than any ocean, purer than any star in the night sky.
+                    </p>
+                    <p>
+                      We are two souls perfectly crafted for each other, completing what the other lacks, 
+                      strengthening what the other possesses. In your eyes, I see our beautiful tomorrow - 
+                      a canvas of endless adventures waiting to be painted with the most vibrant colors of joy, 
+                      laughter, and unconditional love.
+                    </p>
+                    <p className="text-xl md:text-2xl font-normal" style={{
+                      background: 'linear-gradient(135deg, #e879f9, #be185d, #881337)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}>
+                      Together, we will write the most beautiful love story the world has ever seen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </>
         )}
       </main>
+
+      {/* Final Quote */}
+      <div className="py-16">
+        <div className="max-w-4xl mx-auto text-center px-8">
+          <blockquote className="text-2xl md:text-3xl font-light text-white italic">
+            "Your smile is my favorite sight in this world - I live to see it light up your face every single day"
+          </blockquote>
+        </div>
+      </div>
 
       {/* Footer */}
       <footer className="elegant-card border-t border-white/10 py-10">
@@ -437,8 +397,7 @@ export default function Home() {
               }}
             >
               love
-            </span>{" "}
-            by Sanketh for Nikitha
+            </span>
           </p>
         </div>
       </footer>
