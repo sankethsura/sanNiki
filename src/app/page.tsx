@@ -5,6 +5,8 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isCountdownFinished, setIsCountdownFinished] = useState(false);
   const [typewriterText, setTypewriterText] = useState("");
+  const [nameText, setNameText] = useState("");
+  const [nameIndex, setNameIndex] = useState(0);
 
   const birthdayDate = new Date("2025-09-12T00:00:00").getTime();
   const loveMessage =
@@ -32,7 +34,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [birthdayDate]);
 
-  // Typewriter effect
+  // Typewriter effect for love message
   useEffect(() => {
     let index = 0;
     const typeTimer = setInterval(() => {
@@ -46,6 +48,43 @@ export default function Home() {
 
     return () => clearInterval(typeTimer);
   }, [loveMessage]);
+
+  // Typewriter effect for rotating names
+  useEffect(() => {
+    if (!isCountdownFinished) return;
+    
+    const names = ["Niki", "Chinnamma", "Muddu", "Bangara", "Love", "Paapu"];
+    let currentNameIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    const typeNames = () => {
+      const currentName = names[currentNameIndex];
+      
+      if (!isDeleting) {
+        setNameText(currentName.substring(0, charIndex + 1));
+        charIndex++;
+        
+        if (charIndex === currentName.length) {
+          setTimeout(() => {
+            isDeleting = true;
+          }, 2000); // Wait 2 seconds before deleting
+        }
+      } else {
+        setNameText(currentName.substring(0, charIndex));
+        charIndex--;
+        
+        if (charIndex < 0) {
+          isDeleting = false;
+          currentNameIndex = (currentNameIndex + 1) % names.length;
+          charIndex = 0;
+        }
+      }
+    };
+    
+    const timer = setInterval(typeNames, isDeleting ? 100 : 150);
+    return () => clearInterval(timer);
+  }, [isCountdownFinished]);
 
 
   return (
@@ -161,7 +200,7 @@ export default function Home() {
                   Happy Birthday
                   <br />
                   <span
-                    className="font-light"
+                    className="font-light typewriter"
                     style={{
                       background: "linear-gradient(135deg, #e879f9, #be185d, #881337)",
                       WebkitBackgroundClip: "text",
@@ -169,7 +208,7 @@ export default function Home() {
                       backgroundClip: "text",
                     }}
                   >
-                    Niki
+                    {nameText}
                   </span>
                 </h1>
                 <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
