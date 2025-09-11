@@ -190,9 +190,6 @@ export default function Home() {
                     Is Coming
                   </span>
                 </h1>
-                <p className="text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
-                  A moment in time reserved just for you
-                </p>
               </div>
             ) : (
               <div className="mb-16">
